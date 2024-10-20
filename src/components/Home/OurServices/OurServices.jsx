@@ -1,11 +1,9 @@
 import React from "react";
-import img1 from "../../../assets/services.png";
-import teeth from '../../../assets/teeth.png'
 const OurServices = () => {
   return (
     <div className="lg:flex justify-around mt-28">
       <div>
-        <img src={img1} alt="" className="lg:h-[700px] lg:ml-20"/>
+        <img src='https://i.ibb.co.com/nP3DKn4/services.png' alt="" className="lg:h-[700px] lg:ml-20"/>
       </div>
 
       <div className="lg:ml-40">
@@ -33,7 +31,7 @@ const OurServices = () => {
               className="tab-content bg-base-100 "
             >
               <div className="mt-5">
-                    <img src={teeth} alt="" className="lg:w-[400px]"/>
+                    <img src='https://i.ibb.co.com/7XfQWfy/teeth.png' alt="" className="lg:w-[400px]"/>
                     <div className="lg:w-[400px] text-justify">
                         <h3 className="text-lg font-bold">Electro  Gastrology Therapy</h3>
                         <p className="text-sm py-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error </p>
@@ -55,7 +53,7 @@ const OurServices = () => {
               className="tab-content bg-base-100"
             >
              <div className="mt-5">
-                    <img src={teeth} alt="" className="lg:w-[400px]"/>
+                    <img src='https://i.ibb.co.com/7XfQWfy/teeth.png' alt="" className="lg:w-[400px]"/>
                     <div className="lg:w-[400px] text-justify">
                         <h3 className="text-lg font-bold">Cosmetic Dentist</h3>
                         <p className="text-sm py-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error </p>
@@ -76,7 +74,7 @@ const OurServices = () => {
               className="tab-content bg-base-100 "
             >
               <div className="mt-5">
-                    <img src={teeth} alt="" className="lg:w-[400px]"/>
+                    <img src='https://i.ibb.co.com/7XfQWfy/teeth.png' alt="" className="lg:w-[400px]"/>
                     <div className="lg:w-[400px] text-justify">
                         <h3 className="text-lg font-bold">Oral Surgery </h3>
                         <p className="text-sm py-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error </p>
