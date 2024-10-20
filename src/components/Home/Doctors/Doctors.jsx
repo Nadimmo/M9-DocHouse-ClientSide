@@ -1,12 +1,14 @@
-import React from "react";
 import { FaCalendarAlt, FaDollarSign } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
+import useDoctors from "../../Hooks/useDoctors";
+import { key } from "localforage";
 
-import img1 from '../../../assets/Rectangle 15.png'
-import img2 from '../../../assets/Rectangle 16.png'
-import img3 from '../../../assets/Rectangle 17.png'
 
 const Doctors = () => {
+  const {doctor} = useDoctors()
+  
+
+
   return (
     <div className="lg:mx-20">
       <div className="text-center mt-32">
@@ -19,36 +21,38 @@ const Doctors = () => {
         </p>
       </div>
       <div className="lg:grid grid-cols-3 gap-5 mt-20">
-        <div className="card bg-base-100 w-80- shadow-xl my-5">
+
+        {doctor.map(doctor => <>
+          <div key={doctor._id} className="card bg-base-100 w-80- shadow-xl my-5">
           <figure>
             <img
-              src={img1}
-              alt="loading.."
+              src={doctor.image}
+              alt="loading..."
             />
           </figure>
           <div className="card-body ">
-            <h2 className="card-title">Kallani Kavi</h2>
+            <h2 className="card-title">{doctor.doctor_Name}</h2>
             <p className="text-sm opacity-[0.6]">
-              BTP - Senior Physiotherapist
+             {doctor.specialty}
             </p>
             <div className="mt-6 opacity-[0.6]">
               <div className="flex justify-between">
                 <span>
                   <MdLocationPin></MdLocationPin>
                 </span>
-                <p className="text-sm ml-2">Dhanmondi, Dhaka, Bangladesh</p>
+                <p className="text-sm ml-2">{doctor.location}</p>
               </div>
               <div className="flex justify-between mt-2">
                 <span>
                   <FaCalendarAlt></FaCalendarAlt>
                 </span>
-                <p className="text-sm ml-2">Available On Mon, 22 December</p>
+                <p className="text-sm ml-2">{doctor.date}</p>
               </div>
               <div className="mt-2 flex">
                 <span className="mt-[6px]">
                   <FaDollarSign></FaDollarSign>
                 </span>
-                <p className="text-lg ml-2 font-bold"> 15</p>
+                <p className="text-lg ml-2 font-bold">{doctor.price}</p>
 
               </div>
             </div>
@@ -60,89 +64,12 @@ const Doctors = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-base-100 w-80- shadow-xl my-5">
-          <figure>
-            <img
-              src={img2}
-              alt="loading.."
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Karyen Anderson</h2>
-            <p className="text-sm opacity-[0.6]">
-              BTP - Senior Physiotherapist
-            </p>
-            <div className="mt-6 opacity-[0.6]">
-              <div className="flex justify-between">
-                <span>
-                  <MdLocationPin></MdLocationPin>
-                </span>
-                <p className="text-sm ml-2">Dhanmondi, Dhaka, Bangladesh</p>
-              </div>
-              <div className="flex justify-between mt-2">
-                <span>
-                  <FaCalendarAlt></FaCalendarAlt>
-                </span>
-                <p className="text-sm ml-2">Available On Mon, 22 December</p>
-              </div>
-              <div className="mt-2 flex">
-                <span className="mt-[6px]">
-                  <FaDollarSign></FaDollarSign>
-                </span>
-                <p className="text-lg ml-2 font-bold"> 25</p>
+        </>)}
 
-              </div>
-            </div>
 
-            <div className="card-actions justify-center">
-              <button className="btn btn-outline w-full mt-5 text-[#F7A582] hover:bg-[#F7A582] hover:border-none ">
-                View Profile
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 w-80- shadow-xl my-5">
-          <figure>
-            <img
-              src={img3}
-              alt="loading.."
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Kairon Karij</h2>
-            <p className="text-sm opacity-[0.6]">
-              BTP - Senior Physiotherapist
-            </p>
-            <div className="mt-6 opacity-[0.6]">
-              <div className="flex justify-between">
-                <span>
-                  <MdLocationPin></MdLocationPin>
-                </span>
-                <p className="text-sm ml-2">Dhanmondi, Dhaka, Bangladesh</p>
-              </div>
-              <div className="flex justify-between mt-2">
-                <span>
-                  <FaCalendarAlt></FaCalendarAlt>
-                </span>
-                <p className="text-sm ml-2">Available On Mon, 22 December</p>
-              </div>
-              <div className="mt-2 flex">
-                <span className="mt-[6px]">
-                  <FaDollarSign></FaDollarSign>
-                </span>
-                <p className="text-lg ml-2 font-bold"> 20</p>
-
-              </div>
-            </div>
-
-            <div className="card-actions justify-center">
-              <button className="btn btn-outline w-full mt-5 text-[#F7A582] hover:bg-[#F7A582] hover:border-none ">
-                View Profile
-              </button>
-            </div>
-          </div>
-        </div>
         
+
+      
        
       </div>
     </div>
