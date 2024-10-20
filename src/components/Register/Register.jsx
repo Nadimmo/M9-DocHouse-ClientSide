@@ -1,19 +1,111 @@
-import React from "react";
-import img from "../../assets/Frame.png";
+// import React, { useContext } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+// import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+  const img = "https://i.ibb.co.com/TM6W9vk/Frame.png";
+
+  const { register, ProfileUpdate ,GoogleSignIn, GithubSignIn, TwitterSignIn} = useContext(AuthContext);
+
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const name = from.name.value;
+    const email = from.email.value;
+    const password = from.password.value;
+
+    register(email, password)
+      .then((res) => {
+        // console.log(res.user)
+        ProfileUpdate(name)
+        if (res.user) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Register Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        from.reset()
+      })
+      .catch((error) => {
+        // console.log(error.message)
+        alert(error.message);
+      });
+
+    // const submitValue = {name,email,password}
+    // console.log(submitValue)
+  };
+
+
+  const handlerGoogle = ()=>{
+    GoogleSignIn()
+    .then(res=>{
+      if (res.user) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Register Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    })
+    .catch(err =>{
+      alert(err.message)
+    })
+  }
+  const handlerGithub = ()=>{
+    GithubSignIn()
+    .then(res=>{
+      if (res.user) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Register Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    })
+    .catch(err =>{
+      alert(err.message)
+    })
+  }
+  const handlerTwitter = ()=>{
+    TwitterSignIn()
+    .then(res=>{
+      if (res.user) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Register Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    })
+    .catch(err =>{
+      alert(err.message)
+    })
+  }
+
+
   return (
     <div className="my-5">
-      <div className="hero back rounded-2xl min-h-screen p-6">
+      <div className="hero background rounded-2xl min-h-screen p-6">
         <div className="hero-content rounded-xl bg-white flex-col lg:flex-row">
           <div className="text-center lg:text-left">
-            <img src={img} alt="" className="back rounded-xl" />
+            <img src={img} alt="" className="background rounded-xl" />
           </div>
           <div className="card  w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handlerSubmit} className="card-body">
               <h1 className="text-center text-2xl lg:text-5xl font-bold">
                 Sign up now!
               </h1>
@@ -26,6 +118,8 @@ const Register = () => {
                   type="text"
                   placeholder="Name"
                   className="input input-bordered"
+                  name="name"
+                  autoComplete="username"
                   required
                 />
               </div>
@@ -37,6 +131,8 @@ const Register = () => {
                   type="email"
                   placeholder="email"
                   className="input input-bordered"
+                  name="email"
+                  autoComplete="email"
                   required
                 />
               </div>
@@ -49,6 +145,8 @@ const Register = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
+                  autoComplete="current-password"
+                  name="password"
                   required
                 />
               </div>
@@ -60,9 +158,9 @@ const Register = () => {
               </div>
               <div className="divider">OR</div>
               <div className="grid grid-cols-3 hover:cursor-pointer text-4xl gap-x-10 mx-auto">
-                   <FaGoogle></FaGoogle>
-                   <FaFacebook></FaFacebook>
-                   <FaGithub></FaGithub>
+                <button onClick={handlerGoogle}><FaGoogle></FaGoogle></button>
+                <button onClick={handlerTwitter}><FaTwitter ></FaTwitter></button>
+                <button onClick={handlerGithub}><FaGithub ></FaGithub></button>
               </div>
               <p className="text-sm py-2 font-bold">
                 Already registered? Go to{" "}
