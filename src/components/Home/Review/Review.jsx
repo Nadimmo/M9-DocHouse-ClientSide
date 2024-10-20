@@ -6,18 +6,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import img3 from '../../../assets/Group 17.png'
 
 import "./style.css";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
-
-import img1 from "../../../assets/Ellipse 2.png";
-import img2 from "../../../assets/Ellipse 2 (1).png";
-import img3 from "../../../assets/Group 17.png";
+import useReviews from "../../Hooks/useReviews";
 
 const Review = () => {
   const [swiperRef, setSwiperRef] = useState(null);
+  const { reviews } = useReviews();
+  // console.log(reviews)
 
   return (
     <div>
@@ -37,106 +37,36 @@ const Review = () => {
           spaceBetween={30}
           className="mySwiper w-[100%] lg:w-[80%]"
         >
-          <SwiperSlide className="rounded-xl border-2 p-4">
-            <div className="">
-              <div className="lg:flex justify-between">
-                <div className="lg:flex">
-                  <img src={img1} alt="" className="mx-auto"/>
-                  <div className="ml-5 text-center lg:text-left">
-                    <h3 className="text-lg  font-bold">Abdullah </h3>
-                    <span className="text-sm ">Product Manager</span>
+          {
+            reviews.map(review =><>
+            <SwiperSlide key={review._id} className="rounded-xl border-2 p-4">
+              <div className="">
+                <div className="lg:flex justify-between">
+                  <div className="lg:flex">
+                    <img
+                      src={review.image}
+                      alt="loading..."
+                      className="mx-auto w-60 h-60 rounded-[50%] border-2"
+                    />
+                    <div className="ml-5 text-center lg:text-left">
+                      <h3 className="text-lg  font-bold">{review.userName} </h3>
+                      <span className="text-sm ">{review.work}</span>
+                    </div>
                   </div>
+                  <img src={img3} alt="" className="lg:ml-5 mx-auto lg:mx-0 justify-end" />
                 </div>
-                <img src={img3} alt="" className="lg:ml-5 mx-auto lg:mx-0" />
-              </div>
 
-              <p className="text-sm mt-4 opacity-[.7] text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-                iste, laudantium velit itaque saepe eos nesciunt quibusdam
-                doloremque temporibus minus.
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="rounded-xl border-2 p-4 ">
-            <div className="">
-              <div className="lg:flex justify-between">
-                <div className="lg:flex">
-                  <img src={img2} alt="" className="mx-auto"/>
-                  <div className="ml-5 text-center lg:text-left">
-                    <h3 className="text-lg font-bold">Lax Lady </h3>
-                    <span className="text-sm">Accounting Manager</span>
-                  </div>
-                </div>
-                <img src={img3} alt="" className="lg:ml-5 mx-auto lg:mx-0" />
+                <p className="text-sm mt-4 opacity-[.7] text-justify">
+                  {review.review}
+                </p>
               </div>
+            </SwiperSlide>;
+            </>)
+          }
 
-              <p className="text-sm mt-4 opacity-[.7] text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-                iste, laudantium velit itaque saepe eos nesciunt quibusdam
-                doloremque temporibus minus.
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="rounded-xl border-2 p-4 ">
-            <div>
-              <div className="lg:flex justify-between">
-                <div className="lg:flex">
-                  <img src={img1} alt="" className="mx-auto"/>
-                  <div className="ml-5 text-center lg:text-left">
-                    <h3 className="text-lg font-bold">Muhammad Abdullah </h3>
-                    <span className="text-sm">Product Manager</span>
-                  </div>
-                </div>
-                <img src={img3} alt="" className="lg:ml-5 mx-auto lg:mx-0" />
-              </div>
 
-              <p className="text-sm mt-4 opacity-[.7] text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-                iste, laudantium velit itaque saepe eos nesciunt quibusdam
-                doloremque temporibus minus.
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="rounded-xl border-2 p-4 ">
-            <div>
-              <div className="lg:flex justify-between">
-                <div className="lg:flex">
-                  <img src={img2} alt="" className="mx-auto"/>
-                  <div className="ml-5 text-center lg:text-left">
-                    <h3 className="text-lg font-bold">Stacks Lady </h3>
-                    <span className="text-sm">Product Manager</span>
-                  </div>
-                </div>
-                <img src={img3} alt="" className="lg:ml-5 mx-auto lg:mx-0" />
-              </div>
 
-              <p className="text-sm mt-4 opacity-[.7] text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-                iste, laudantium velit itaque saepe eos nesciunt quibusdam
-                doloremque temporibus minus.
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="rounded-xl border-2 p-4 ">
-            <div>
-              <div className="lg:flex justify-between">
-                <div className="lg:flex">
-                  <img src={img1} alt="" className="mx-auto" />
-                  <div className="ml-5 text-center lg:text-left">
-                    <h3 className="text-lg font-bold">Muhammad Abdullah </h3>
-                    <span className="text-sm">Product Manager</span>
-                  </div>
-                </div>
-                <img src={img3} alt="" className="lg:ml-5 mx-auto lg:mx-0" />
-              </div>
 
-              <p className="text-sm mt-4 opacity-[.7] text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-                iste, laudantium velit itaque saepe eos nesciunt quibusdam
-                doloremque temporibus minus.
-              </p>
-            </div>
-          </SwiperSlide>
         </Swiper>
       </div>
     </div>
