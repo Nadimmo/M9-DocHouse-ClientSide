@@ -1,0 +1,53 @@
+[
+    {
+      "doctor_Name": "Dr. Samannta Seti",
+      "specialty": "BTP - Senior Physiotherapist",
+      "location": "Dhanmondi, Dhaka, Bangladesh",
+      "date": "Available On Mon, 22 December 2025",
+      "image":"https://i.ibb.co.com/LzjrjR1/Rectangle-15.png",
+      "price": "$15"
+    },
+    {
+      "doctor_Name": "Karyen Anderson ",
+      "specialty": "Cardiologist",
+      "location": "Banani, Dhaka, Bangladesh",
+      "date": "Available On Tue, 23 December 2025",
+      "image": "https://i.ibb.co.com/4TsqSNJ/Rectangle-16.png",
+      "price": "$25"
+    },
+    {
+      "doctor_Name": "Dr. Sarah Lee",
+      "specialty": "Dermatologist",
+      "location": "Gulshan, Dhaka, Bangladesh",
+      "date": "Available On Wed, 24 December 2025",
+      "image": "https://i.ibb.co.com/sCJmW7Z/Rectangle-17.png",
+      "price": "$20"
+    },
+    {
+      "doctor_Name": "Dr. Michael Brown",
+      "specialty": "Orthopedic Surgeon",
+      "location": "Mirpur, Dhaka, Bangladesh",
+      "date": "Available On Thu, 25 December 2025",
+      "image": "https://i.ibb.co.com/4TsqSNJ/Rectangle-16.png",
+      "price": "$50"
+    },
+    {
+      "doctor_Name": "Dr. Emily Davis",
+      "specialty": "Pediatrician",
+      "location": "Uttara, Dhaka, Bangladesh",
+      "date": "Available On Fri, 26 December 2025",
+      "image": "https://i.ibb.co.com/4TsqSNJ/Rectangle-16.png",
+      "price": "$30"
+
+    },
+    {
+      "doctor_Name": "Dr. Robert Wilson",
+      "specialty": "Neurologist",
+      "location": "Mohammadpur, Dhaka, Bangladesh",
+      "date": "Available On Sat, 27 December 2025",
+      "image": "https://i.ibb.co.com/4TsqSNJ/Rectangle-16.png",
+      "price": "$40"
+
+    }
+  ]
+  
